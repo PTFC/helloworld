@@ -6,5 +6,10 @@ include_directories(hdr)
 set(SOURCES src/HelloWorld.cpp src/Speaker.cpp)
 #file(GLOB SOURCES "src/*.c")
 
-add_executable(hellworld ${SOURCES})
+find_package( OpenCV REQUIRED )
 
+add_executable(helloworld ${SOURCES})
+
+#install(TARGETS hellworld DESTINATION bin)
+
+target_link_libraries( helloworld ${OpenCV_LIBS} )
